@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="script.js"></script>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="stile.css">
+    <title>test</title>
+
+</head>
+<body>
+    <div id="wrapper"  style="display: block;background-color: red; height: 900px; width:900px; position: relative; left:25%; ">
+        <form style="border:2px solid black; padding: 5px; width: 500px;background-color:darkblue; color:white">
+            <label for="numeroUtenti">Number of users</label>
+            <input type="range" min="1" max="100" value="50" class="slider" id="sliderUtenti" name="num" oninput="sliderCambiato()"/>
+            <input type="text" id="numeroUtenti" name="num" oninput="testoCambiato()"/>
+
+            <br />
+
+            <div id="filtriNazionalita">
+                <label for="abilitaFiltroNazionalita">Nationalities</label>
+                <input id="abilitaFiltroNazionalita" type="checkbox"  value="nat" class="checkBoxFiltri" onchange="cambiaStatoCheck(value,this)"/>
+            </div>
+
+
+            <div id="filtriSesso">
+                <label for="abilitaFiltroSesso">Gender</label>
+                <input id="abilitaFiltroSesso" type="checkbox"  value="gender" class="checkBoxFiltri" onchange="cambiaStatoCheck(value,this)"/>
+            </div>
+
+
+            <div id="filtriPassword">
+                <label for="abilitaFiltroPassword">Password Type</label>
+                <input id="abilitaFiltroPassword" type="checkbox"  value="password" class="checkBoxFiltri" onchange="cambiaStatoCheck(value,this)"/>
+            </div>
+
+        </form>
+        <button onclick="generateUsers()">Generate Users</button>
+        <div id="userGenerati" style="border:2px solid black; padding: 5px; width: 500px;background-color:darkblue; color:white ">
+                <img src="" class="generati"/>
+                <h3 id="Name" class="generati">Name: </h3>
+                <h3 id="Surname" class="generati" >Surname: </h3>
+                <p id="Gender" class="generati">Gender: </p>
+                <p id="Nationality" class="generati">Nationality: </p>
+                <p id="Email" class="generati" >Email: </p>
+                <p id="Password" class="generati" >Password: </p>
+
+        </div>
+        <button value="1" onclick="cambiaIndice(value)">avanti</button> <button value="-1" onclick="cambiaIndice(value)">indietro</button>
+        <p id="labelContatore">elemento 0</p><p id="labelMax">di 0</p>
+    </div>
+</body>
+</html>
